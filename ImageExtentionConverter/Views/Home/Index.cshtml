@@ -1,0 +1,20 @@
+﻿@model Images
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" enctype="multipart/form-data">
+
+    <h1>Upload WebP Type Image </h1>
+
+    <input name="file" type="file" />
+
+    <input type="submit" value="Upload" />
+</form>
+@if(Model != null)
+{
+    <picture style="height:50vh;">
+        <source srcset="@Model.WebPImage" type="image/webp" />
+        <img src="@Model.NormalImage" style="height:50vh;" alt="No Image Found" />
+    </picture>
+}
